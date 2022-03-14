@@ -79,8 +79,8 @@ void getColors() {
 }
 void setColor(int red, int green, int blue) {
   
-  ledcWrite(pwm_r_channel, 255 - red);
-  ledcWrite(pwm_g_channel, 0.90*(255 - green));
+  ledcWrite(pwm_r_channel, (int) (1.05*(255 - red)));
+  ledcWrite(pwm_g_channel, (int) (0.90*(255 - green)));
   ledcWrite(pwm_b_channel, 255 - blue);
 }
 
