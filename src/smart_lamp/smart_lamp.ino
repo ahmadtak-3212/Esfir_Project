@@ -1,6 +1,5 @@
 #include <SPI.h>
-#include <WiFiClientSecure.h>
-#include <WiFiClient.h>
+#include <WiFi.h>
 
 const uint16_t RESPONSE_TIMEOUT = 6000;
 const uint16_t IN_BUFFER_SIZE = 3500; //size of buffer to hold HTTP request
@@ -18,10 +17,6 @@ const int pwm_r_channel = 0;
 const int pwm_g_channel = 1;
 const int pwm_b_channel = 2;
 const int RESPONSE_INTERVAL = 5000;
-
-
-WiFiClientSecure client; //global WiFiClient Secure object
-WiFiClient client2; //global WiFiClient Secure object
 
 const char NETWORK[] = "StataCenter";
 const char PASSWORD[] = "";
@@ -79,7 +74,7 @@ void getColors() {
 }
 void setColor(int red, int green, int blue) {
   
-  ledcWrite(pwm_r_channel, (int) (1.05*(255 - red)));
+  ledcWrite(pwm_r_channel, (255 - red));
   ledcWrite(pwm_g_channel, (int) (0.90*(255 - green)));
   ledcWrite(pwm_b_channel, 255 - blue);
 }
