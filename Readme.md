@@ -24,4 +24,5 @@
 - Another caveat green overpowers other colors when all values are the same. To compensate for this I multipled the green value written to the pwm channel by 0.9 effectively reducing greens brightness by 10% to even it out with the other colors. 
 # Final Notes
 I had a lot of fun doing this excersise it was really cool seing it work!
+link to video: https://youtu.be/NfWi4lIguIc
 
