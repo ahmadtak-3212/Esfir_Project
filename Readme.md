@@ -9,5 +9,25 @@
 ![image](https://user-images.githubusercontent.com/78754327/158101948-c3f650f5-e215-4354-93bb-d7a914dad59b.png)
 
 ### ESP32 CLIENT
-- Once the database has updated values a get request from the esp32 client is 
+- Once the database has updated values, a get request from the esp32 client is made to the server.py endpoint. 
+- Server.py then processes this get request by finding the latest posted rgb value (Makes a sql query and orders by timestamp). Once the request is made it then returns the value as a string to esp32 ("{r},{g},{b}"). 
+## Database
+- Our database table contains 4 columns (red, green, blue, and timestamp).
+- Everytime a post request is made it populates a row in this table
++-----+-------+-------+------+
+| Red | Green | Blue  | Time |
++-----+-------+-------+------+
+|     |       |       |      |
++-----+-------+-------+------+
+|     |       |       |      |
++-----+-------+-------+------+
+|     |       |       |      |
++-----+-------+-------+------+
+## Esp32 Client
+- The esp32 makes periodic get requests to the every RESPONSE_INTERVAL (line 19 of RESPONSE INTERVAL) milliseconds 
+- Once a get request is made it returns a response from server.py in the format mentioned above this is then processed into three integers representing red green and blue values. Each value is then written to one of the 3 pwm channels tied to the pins of the led.
+- Since it is active low we are actually writing 255 minus the value from the database. 
+- Another caveat green overpowers other colors when all values are the same. To compensate for this I multipled the green value written to the pwm channel by 0.9 effectively reducing greens brightness by 10% to even it out with the other colors. 
+# Final Notes
+I had a lot of fun doing this excersise it was really cool seing it work!
 
