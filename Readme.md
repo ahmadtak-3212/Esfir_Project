@@ -14,7 +14,7 @@
 ## Database
 - Our database table contains 4 columns (red, green, blue, and timestamp).
 - Everytime a post request is made it populates a row in this table
-+-----+-------+-------+------+
++-----+-------+-------+------+ \n
 | Red | Green | Blue  | Time |
 +-----+-------+-------+------+
 |     |       |       |      |
