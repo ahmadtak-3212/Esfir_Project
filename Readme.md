@@ -14,7 +14,9 @@
 ## Database
 - Our database table contains 4 columns (red, green, blue, and timestamp).
 - Everytime a post request is made it populates a row in this table
+
 ![image](https://user-images.githubusercontent.com/78754327/158104619-4153eaf0-bdc8-4362-9322-34b816ffd12f.png)
+
 ## Esp32 Client
 - The esp32 makes periodic get requests to the every RESPONSE_INTERVAL (line 19 of RESPONSE INTERVAL) milliseconds 
 - Once a get request is made it returns a response from server.py in the format mentioned above this is then processed into three integers representing red green and blue values. Each value is then written to one of the 3 pwm channels tied to the pins of the led.
